@@ -66,6 +66,19 @@
 </div>
 
 <div class="row">
+    <div>
+        <h2>Kendo UI DatePicker</h2>
+        @(Html.Kendo().DatePicker()
+          .Name("datepicker")
+          .Deferred()
+        )
+        
+        @* All initialization scripts are rendered to the bottom of the page, see Layout.cshtml *@
+        @section scripts {
+            @Html.Kendo().DeferredScripts()
+        }
+    </div>
+    
     <div class="col-md-3">
         <h2>Application uses</h2>
         <ul>
