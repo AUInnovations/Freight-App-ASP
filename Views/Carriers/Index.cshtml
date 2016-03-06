@@ -1,0 +1,164 @@
+@model IEnumerable<FreightAppASP.Models.Carrier>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountingContactEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountingContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountingContactPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DbaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DispatchContactEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DispatchContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DispatchContactPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DotNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTaxtId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MailingAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MailingCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MailingState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MailingZip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicalAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicalCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicalState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicalZip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryContactPhone)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountingContactEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountingContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountingContactPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DbaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DispatchContactEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DispatchContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DispatchContactPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DotNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTaxtId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MailingAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MailingCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MailingState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MailingZip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicalAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicalCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicalState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhysicalZip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryContactPhone)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.CarrierId">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.CarrierId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.CarrierId">Delete</a>
+        </td>
+    </tr>
+}
+</table>

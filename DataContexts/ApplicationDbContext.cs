@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FreightAppASP.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 
-namespace FreightAppASP.Models
+namespace FreightAppASP.DataContexts
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -1,0 +1,156 @@
+@model FreightAppASP.Models.Carrier
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Carrier</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingContactEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountingContactEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingContactName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountingContactName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountingContactPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountingContactPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DbaName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DbaName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DispatchContactEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DispatchContactEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DispatchContactName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DispatchContactName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DispatchContactPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DispatchContactPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DotNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DotNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsTaxtId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsTaxtId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingState)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingState)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingZip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MailingZip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalState)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalState)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalZip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalZip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryContactPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryContactPhone)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.CarrierId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>
