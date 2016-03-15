@@ -11,82 +11,47 @@
         <h4>Carrier</h4>
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+
+        <!--
+        public string CarrierName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string MCNum { get; set; }
+        public string MailingAddress { get; set; }
+        public string MailingCity { get; set; }
+        public string MailingState { get; set; }
+        public string MailingZip { get; set; }
+        public string DispatchContactPhone { get; set; }
+        public string Fax { get; set; }
+        public string DispatchContactEmail { get; set; }
+        -->
+
         <div class="form-group">
-            <label asp-for="AccountingContactEmail" class="col-md-2 control-label"></label>
+            <label asp-for="CarrierName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="AccountingContactEmail" class="form-control" />
-                <span asp-validation-for="AccountingContactEmail" class="text-danger" />
+                <input asp-for="CarrierName" class="form-control" />
+                <span asp-validation-for="CarrierName" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="AccountingContactName" class="col-md-2 control-label"></label>
+            <label asp-for="FirstName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="AccountingContactName" class="form-control" />
-                <span asp-validation-for="AccountingContactName" class="text-danger" />
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="CarrierName" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="AccountingContactPhone" class="col-md-2 control-label"></label>
+            <label asp-for="LastName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="AccountingContactPhone" class="form-control" />
-                <span asp-validation-for="AccountingContactPhone" class="text-danger" />
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="CompanyName" class="col-md-2 control-label"></label>
+            <label asp-for="MCNum" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="CompanyName" class="form-control" />
-                <span asp-validation-for="CompanyName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DbaName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="DbaName" class="form-control" />
-                <span asp-validation-for="DbaName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DispatchContactEmail" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="DispatchContactEmail" class="form-control" />
-                <span asp-validation-for="DispatchContactEmail" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DispatchContactName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="DispatchContactName" class="form-control" />
-                <span asp-validation-for="DispatchContactName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DispatchContactPhone" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="DispatchContactPhone" class="form-control" />
-                <span asp-validation-for="DispatchContactPhone" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DotNumber" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="DotNumber" class="form-control" />
-                <span asp-validation-for="DotNumber" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Fax" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Fax" class="form-control" />
-                <span asp-validation-for="Fax" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                    <input asp-for="IsTaxtId" />
-                    <label asp-for="IsTaxtId"></label>
-                </div>
+                <input asp-for="MCNum" class="form-control" />
+                <span asp-validation-for="MCNum" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
@@ -118,89 +83,53 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Phone" class="col-md-2 control-label"></label>
+            <label asp-for="DispatchContactPhone" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger" />
+                <input asp-for="DispatchContactPhone" class="form-control" />
+                <span asp-validation-for="DispatchContactPhone" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="PhysicalAddress" class="col-md-2 control-label"></label>
+            <label asp-for="Fax" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="PhysicalAddress" class="form-control" />
-                <span asp-validation-for="PhysicalAddress" class="text-danger" />
+                <input asp-for="Fax" class="form-control" />
+                <span asp-validation-for="Fax" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="PhysicalCity" class="col-md-2 control-label"></label>
+            <label asp-for="DispatchContactEmail" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="PhysicalCity" class="form-control" />
-                <span asp-validation-for="PhysicalCity" class="text-danger" />
+                <input asp-for="DispatchContactEmail" class="form-control" />
+                <span asp-validation-for="DispatchContactEmail" class="text-danger" />
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="PhysicalState" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PhysicalState" class="form-control" />
-                <span asp-validation-for="PhysicalState" class="text-danger" />
-            </div>
+
+        <div class="box">
+            <h4>Upload Paperwork</h4>
+            <p>
+                <b>Accepted file types: jpg, png, pdf, gif.</b> <br/>
+                Authority, W-9, Certificate of Insurance and other paperwork that we may <br/>
+                find useful (.jpg, .png, .gif, .pdf format only) or FAX to 916-200-0193
+            </p>
         </div>
-        <div class="form-group">
-            <label asp-for="PhysicalZip" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PhysicalZip" class="form-control" />
-                <span asp-validation-for="PhysicalZip" class="text-danger" />
+        <form method="post" action='@Url.Action("Submit")'>
+            <div class="demo-section k-content">
+                @(Html.Kendo().Upload()
+                    .Name("files")
+                )
+            <p style="padding-top: 1em; text-align: right">
+                <input type="submit" value="Submit" class="k-button k-primary" />
+            </p>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PrimaryContactEmail" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PrimaryContactEmail" class="form-control" />
-                <span asp-validation-for="PrimaryContactEmail" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PrimaryContactName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PrimaryContactName" class="form-control" />
-                <span asp-validation-for="PrimaryContactName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="PrimaryContactPhone" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="PrimaryContactPhone" class="form-control" />
-                <span asp-validation-for="PrimaryContactPhone" class="text-danger" />
-            </div>
-        </div>
+        </form>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+
     </div>
-
-    <div class="box">
-        <h4>Information</h4>
-        <p>
-            The Upload can be used as a drop-in replacement
-            for file input elements. This "synchronous" mode does not require
-            special handling on the server.
-        </p>
-    </div>
-    <form method="post" action='@Url.Action("Submit")'>
-        <div class="demo-section k-content">
-            @(Html.Kendo().Upload()
-                .Name("files")
-            )
-            <p style="padding-top: 1em; text-align: right">
-                <input type="submit" value="Submit" class="k-button k-primary" />
-            </p>
-        </div>
-    </form>
-
-    
-
 </form>
 
 <div>
