@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Identity;
@@ -14,5 +16,5 @@ namespace FreightAppASP.Controllers
 			{
 					return View();
 			}
-		}
+	}
 }
