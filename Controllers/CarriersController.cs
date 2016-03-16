@@ -4,22 +4,27 @@ using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using FreightAppASP.DataContexts;
 using FreightAppASP.Models;
+using FreightAppASP.Services;
 
 namespace FreightAppASP.Controllers
 {
     public class CarriersController : Controller
     {
         private CarrierContext _context;
+        private CarrierService carrierService;
 
         public CarriersController(CarrierContext context)
         {
-            _context = context;    
+            _context = context;
+            carrierService = new CarrierService(_context);    
         }
 
         // GET: Carriers
         public IActionResult Index()
         {
-            return View(_context.Carriers.ToList());
+            var model = carrierService.Read();
+
+            return View(model);
         }
 
         // GET: Carriers/Details/5
