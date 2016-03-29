@@ -19,6 +19,11 @@ namespace FreightAppASP.Controllers
             carrierService = new CarrierService(_context);    
         }
 
+        public void Seed()
+        {
+            SeedData.Initialize(_context);            
+        }
+
         // GET: Carriers
         public IActionResult Index()
         {

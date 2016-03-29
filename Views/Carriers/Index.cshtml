@@ -3,14 +3,41 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h2>Test</h2>
+<h2>Carriers</h2>
+<div>
+    <a asp-action="Seed">Seed</a>
+</div>
 
 @(Html.Kendo().Grid(Model)
     .Name("Grid")
     .Columns(columns =>
     {
-        columns.Bound(p => p.CarrierId).Title("Carrier ID");
+        columns.Bound(p => p.CarrierId).Title("ID").Width(80);
+        //columns.Bound(p => p.DotNumber).Title("DoT Number");
+        //columns.Bound(p => p.IsTaxtId).Title("Carrier ID");
         columns.Bound(p => p.CompanyName).Title("Company Name");
+        //columns.Bound(p => p.DbaName).Title("DBA Name");
+        //columns.Bound(p => p.MailingAddress).Title("Mailing Address");
+        //columns.Bound(p => p.MailingCity).Title("City");
+        //columns.Bound(p => p.MailingState).Title("State");
+        //columns.Bound(p => p.MailingZip).Title("Zip Code");
+        //.Bound(p => p.PhysicalAddress).Title("Physical Address");
+        columns.Bound(p => p.PrimaryContactName).Title("Contact Name");
+        columns.Bound(p => p.PhysicalCity).Title("City");
+        columns.Bound(p => p.PhysicalState).Title("State");
+        columns.Bound(p => p.PhysicalZip).Title("Zip").Width(100);
+        //columns.Bound(p => p.Phone).Title("Phone");
+        //columns.Bound(p => p.Fax).Title("Fax");
+
+        //columns.Bound(p => p.PrimaryContactPhone).Title("Phone");
+        //columns.Bound(p => p.PrimaryContactEmail).Title("Email");
+        //columns.Bound(p => p.DispatchContactName).Title("Dispatch Name");
+        //columns.Bound(p => p.DispatchContactPhone).Title("Phone");
+        //columns.Bound(p => p.DispatchContactEmail).Title("Email");
+        //columns.Bound(p => p.AccountingContactName).Title("Accountant Name");
+        //columns.Bound(p => p.AccountingContactPhone).Title("Phone");
+        //columns.Bound(p => p.AccountingContactEmail).Title("Email");
+        columns.Command(command => command.Custom("Details").Click("showDetails")).Width(140);
     })
     .HtmlAttributes(new { style = "height: 550px;" })
     .Pageable(pageable => pageable
@@ -26,3 +53,92 @@
         .ServerOperation(false)
      )
 )
+@(Html.Kendo().Window().Name("Details")
+    .Title("Carrier Information")
+    .Visible(false)
+    .Modal(true)
+    .Draggable(true)
+    .Width(600)
+)
+
+<script type="text/x-kendo-template" id="template">
+    <div id="details-container">
+        <h3>#= CompanyName # </h3>
+        
+            <dt>Carrier ID: #= CarrierId #</dt>
+        
+            <table width="95%">
+                <tr>
+                    <td><b>Phone Number</b></td>
+                    <td><b>Fax Number</b></td>
+                </tr>
+               
+                <tr>
+                    <td>#= Phone#</td>
+                    <td>#= Fax#</td>
+                </tr>
+                 <tr><td> <br /></td></tr>
+                <tr>
+                    <td><b>Physical Address</b></td>
+                    <td><b>Mailing Address</b></td>
+                </tr>
+                <tr>
+                    <td>#=PhysicalAddress#</td>
+                    <td>#=MailingAddress#</td>
+                </tr>
+                <tr>
+                    <td>#=PhysicalCity# #=PhysicalState# #=PhysicalZip#</td>
+                    <td>#=MailingCity# #=MailingState# #=MailingZip#</td>
+                </tr>
+                <tr><td> <br /></td></tr>
+                <tr>
+                    <td><b>Primary Contact</b></td>
+                    <td><b>Dispatch Contact</b></td>
+                </tr>
+                <tr>
+                    <td> #= PrimaryContactName#</td>
+                    <td> #= DispatchContactName#</td>
+                </tr>
+                <tr>
+                    <td>Phone: #=PrimaryContactPhone#</td>
+                    <td>Phone: #=DispatchContactPhone#</td>
+                </tr>
+                <tr>
+                    <td>Email: #=PrimaryContactEmail#</td>
+                    <td>Email: #=DispatchContactEmail#</td>
+                </tr>
+                <tr><td> <br /></td></tr>
+                <tr>
+                    <td><b>Accounting Contact</b></td>
+                </tr>
+                <tr>
+                    <td>#=AccountingContactName#</td>
+                </tr>
+                <tr>
+                    <td>Phone: #=AccountingContactPhone#</td>
+                </tr>
+                <tr><td>Email: #=AccountingContactEmail#</td></tr>
+                </table>
+          <dl>  
+                 
+            <h4>Other Info</h4>
+            <dt>Dot Number: #= DotNumber #</dt>
+            <dt>DBA: #= DbaName #</dt>
+            <dt>Tax: #= IsTaxtId #</dt>
+        </dl>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var detailsTemplate = kendo.template($("#template").html());
+
+    function showDetails(e) {
+        e.preventDefault();
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#Details").data("kendoWindow");
+
+        wnd.content(detailsTemplate(dataItem));
+        wnd.center().open();
+    }
+</script>

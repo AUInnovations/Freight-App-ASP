@@ -22,8 +22,30 @@ namespace FreightAppASP.Services
             return entities.Carriers.Select(carrier => new CarrierViewModel
             {
                 CompanyName = carrier.CompanyName,
-                CarrierId = carrier.CarrierId
-            });
+                CarrierId = carrier.CarrierId,
+                PhysicalCity = carrier.PhysicalCity,
+                PhysicalState = carrier.PhysicalState,
+                PhysicalZip = carrier.PhysicalZip,
+                PrimaryContactName = carrier.PrimaryContactName,
+                PhysicalAddress = carrier.PhysicalAddress,          
+                DotNumber = carrier.DotNumber,
+                IsTaxtId = carrier.IsTaxtId,
+                DbaName = carrier.DbaName,
+                MailingAddress = carrier.MailingAddress,
+                MailingCity = carrier.MailingCity,
+                MailingState = carrier.MailingState,
+                MailingZip = carrier.MailingZip,
+                Phone = carrier.Phone,
+                Fax = carrier.Fax,
+                PrimaryContactPhone = carrier.PrimaryContactPhone,
+                PrimaryContactEmail = carrier.PrimaryContactEmail,
+                DispatchContactName = carrier.DispatchContactName,
+                DispatchContactPhone = carrier.DispatchContactPhone,
+                DispatchContactEmail = carrier.DispatchContactEmail,
+                AccountingContactName = carrier.AccountingContactName,
+                AccountingContactPhone = carrier.AccountingContactPhone,
+                AccountingContactEmail = carrier.AccountingContactEmail
+        });
         }
 
         public void Create(CarrierViewModel product)
