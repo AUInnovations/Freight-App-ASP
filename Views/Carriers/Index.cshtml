@@ -1,164 +1,144 @@
-@model IEnumerable<FreightAppASP.Models.Carrier>
+@model IEnumerable<FreightAppASP.ViewModels.CarrierViewModel>
 
 @{
     ViewData["Title"] = "Index";
 }
+<h2>Carriers</h2>
+<div>
+    <a asp-action="Seed">Seed</a>
+</div>
 
-<h2>Index</h2>
+@(Html.Kendo().Grid(Model)
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.CarrierId).Title("ID").Width(80);
+        //columns.Bound(p => p.DotNumber).Title("DoT Number");
+        //columns.Bound(p => p.IsTaxtId).Title("Carrier ID");
+        columns.Bound(p => p.CompanyName).Title("Company Name");
+        //columns.Bound(p => p.DbaName).Title("DBA Name");
+        //columns.Bound(p => p.MailingAddress).Title("Mailing Address");
+        //columns.Bound(p => p.MailingCity).Title("City");
+        //columns.Bound(p => p.MailingState).Title("State");
+        //columns.Bound(p => p.MailingZip).Title("Zip Code");
+        //.Bound(p => p.PhysicalAddress).Title("Physical Address");
+        columns.Bound(p => p.PrimaryContactName).Title("Contact Name");
+        columns.Bound(p => p.PhysicalCity).Title("City");
+        columns.Bound(p => p.PhysicalState).Title("State");
+        columns.Bound(p => p.PhysicalZip).Title("Zip").Width(100);
+        //columns.Bound(p => p.Phone).Title("Phone");
+        //columns.Bound(p => p.Fax).Title("Fax");
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountingContactEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountingContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountingContactPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DbaName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DispatchContactEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DispatchContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DispatchContactPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DotNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fax)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsTaxtId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MailingAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MailingCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MailingState)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MailingZip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhysicalAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhysicalCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhysicalState)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhysicalZip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryContactEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryContactPhone)
-        </th>
-        <th></th>
-    </tr>
-    
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountingContactEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountingContactName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountingContactPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DbaName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DispatchContactEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DispatchContactName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DispatchContactPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DotNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fax)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsTaxtId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MailingAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MailingCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MailingState)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MailingZip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhysicalAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhysicalCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhysicalState)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhysicalZip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimaryContactEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimaryContactName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrimaryContactPhone)
-        </td>
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.CarrierId">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.CarrierId">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.CarrierId">Delete</a>
-        </td>
-    </tr>
-}
-</table>
+        //columns.Bound(p => p.PrimaryContactPhone).Title("Phone");
+        //columns.Bound(p => p.PrimaryContactEmail).Title("Email");
+        //columns.Bound(p => p.DispatchContactName).Title("Dispatch Name");
+        //columns.Bound(p => p.DispatchContactPhone).Title("Phone");
+        //columns.Bound(p => p.DispatchContactEmail).Title("Email");
+        //columns.Bound(p => p.AccountingContactName).Title("Accountant Name");
+        //columns.Bound(p => p.AccountingContactPhone).Title("Phone");
+        //columns.Bound(p => p.AccountingContactEmail).Title("Email");
+        columns.Command(command => command.Custom("Details").Click("showDetails")).Width(140);
+    })
+    .HtmlAttributes(new { style = "height: 550px;" })
+    .Pageable(pageable => pageable
+       .Input(true)
+       .Numeric(false)
+     )
+    .Sortable()
+    .Scrollable(scr => scr.Height(430))
+    .Filterable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .ServerOperation(false)
+     )
+)
+@(Html.Kendo().Window().Name("Details")
+    .Title("Carrier Information")
+    .Visible(false)
+    .Modal(true)
+    .Draggable(true)
+    .Width(600)
+)
+
+<script type="text/x-kendo-template" id="template">
+    <div id="details-container">
+        <h3>#= CompanyName # </h3>
+        
+            <dt>Carrier ID: #= CarrierId #</dt>
+        
+            <table width="95%">
+                <tr>
+                    <td><b>Phone Number</b></td>
+                    <td><b>Fax Number</b></td>
+                </tr>
+               
+                <tr>
+                    <td>#= Phone#</td>
+                    <td>#= Fax#</td>
+                </tr>
+                 <tr><td> <br /></td></tr>
+                <tr>
+                    <td><b>Physical Address</b></td>
+                    <td><b>Mailing Address</b></td>
+                </tr>
+                <tr>
+                    <td>#=PhysicalAddress#</td>
+                    <td>#=MailingAddress#</td>
+                </tr>
+                <tr>
+                    <td>#=PhysicalCity# #=PhysicalState# #=PhysicalZip#</td>
+                    <td>#=MailingCity# #=MailingState# #=MailingZip#</td>
+                </tr>
+                <tr><td> <br /></td></tr>
+                <tr>
+                    <td><b>Primary Contact</b></td>
+                    <td><b>Dispatch Contact</b></td>
+                </tr>
+                <tr>
+                    <td> #= PrimaryContactName#</td>
+                    <td> #= DispatchContactName#</td>
+                </tr>
+                <tr>
+                    <td>Phone: #=PrimaryContactPhone#</td>
+                    <td>Phone: #=DispatchContactPhone#</td>
+                </tr>
+                <tr>
+                    <td>Email: #=PrimaryContactEmail#</td>
+                    <td>Email: #=DispatchContactEmail#</td>
+                </tr>
+                <tr><td> <br /></td></tr>
+                <tr>
+                    <td><b>Accounting Contact</b></td>
+                </tr>
+                <tr>
+                    <td>#=AccountingContactName#</td>
+                </tr>
+                <tr>
+                    <td>Phone: #=AccountingContactPhone#</td>
+                </tr>
+                <tr><td>Email: #=AccountingContactEmail#</td></tr>
+                </table>
+          <dl>  
+                 
+            <h4>Other Info</h4>
+            <dt>Dot Number: #= DotNumber #</dt>
+            <dt>DBA: #= DbaName #</dt>
+            <dt>Tax: #= IsTaxtId #</dt>
+        </dl>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var detailsTemplate = kendo.template($("#template").html());
+
+    function showDetails(e) {
+        e.preventDefault();
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#Details").data("kendoWindow");
+
+        wnd.content(detailsTemplate(dataItem));
+        wnd.center().open();
+    }
+</script>
