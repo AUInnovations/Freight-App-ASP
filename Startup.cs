@@ -53,6 +53,9 @@ namespace FreightAppASP
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddCaching();
+            services.AddSession();
+
             services.AddMvc();
 
             // Add application services.
@@ -94,6 +97,8 @@ namespace FreightAppASP
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseIdentity();
 

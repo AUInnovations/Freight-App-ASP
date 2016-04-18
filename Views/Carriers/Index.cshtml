@@ -4,8 +4,11 @@
     ViewData["Title"] = "Index";
 }
 <h2>Carriers</h2>
+
 <div>
-    <a asp-action="Seed">Seed</a>
+    <a asp-action="Seed" class="btn btn-default">Seed</a>
+    <a asp-action="Import" class="btn btn-default">Import Carriers</a>
+
 </div>
 
 @(Html.Kendo().Grid(Model)

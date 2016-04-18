@@ -1,10 +1,12 @@
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Web;
 using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.Data.Entity;
 using FreightAppASP.DataContexts;
 using FreightAppASP.Models;
 using FreightAppASP.Services;
+using Microsoft.AspNet.Http;
 
 namespace FreightAppASP.Controllers
 {
@@ -30,6 +32,25 @@ namespace FreightAppASP.Controllers
             var model = carrierService.Read();
 
             return View(model);
+        }
+
+        // Import
+        public IActionResult Import()
+        {
+            ViewData["Message"] = "Import Carriers.";
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Submit(IEnumerable<IFormFile> files)
+        {
+            if (files != null)
+            {
+                carrierService.ImportCarriers(files);
+            }
+
+            return RedirectToAction("Index");
         }
 
         // GET: Carriers/Details/5

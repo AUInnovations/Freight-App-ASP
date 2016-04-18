@@ -1,0 +1,17 @@
+﻿<div class="box">
+    <h4>Carrier Import From JTracker</h4>
+    <p>
+        Please drop in Historical Order Status and Carrier Info spreadsheet.
+    </p>
+</div>
+<form method="post" asp-action="Submit" asp-controller="Carriers" enctype="multipart/form-data">
+    <div class="demo-section k-content">
+        @(Html.Kendo().Upload()
+            .Name("files")
+        )
+        <p style="padding-top: 1em; text-align: right">
+            <input type="submit" value="Submit" class="k-button k-primary" />
+        </p>
+    </div>
+</form>
+

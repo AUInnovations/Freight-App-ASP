@@ -4,6 +4,7 @@ using System.Linq;
 using FreightAppASP.DataContexts;
 using FreightAppASP.Models;
 using FreightAppASP.ViewModels;
+using Microsoft.AspNet.Http;
 using Microsoft.Data.Entity;
 
 namespace FreightAppASP.Services
@@ -63,6 +64,11 @@ namespace FreightAppASP.Services
         public void Dispose()
         {
             entities.Dispose();
+        }
+
+        public void ImportCarriers(IEnumerable<IFormFile> files)
+        {
+            
         }
     }
 }
