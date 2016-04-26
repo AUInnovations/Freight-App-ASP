@@ -1,0 +1,58 @@
+@model FreightAppASP.Models.Lanes
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Lanes</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CarrierId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CarrierId" class="form-control" />
+                <span asp-validation-for="CarrierId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DestinationCity" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DestinationCity" class="form-control" />
+                <span asp-validation-for="DestinationCity" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="OriginCity" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="OriginCity" class="form-control" />
+                <span asp-validation-for="OriginCity" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Radius" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Radius" class="form-control" />
+                <span asp-validation-for="Radius" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -22,11 +22,21 @@ namespace FreightAppASP.Models
             {
                 return;   // DB has been seeded
             }*/
-
+            context.Lanes.AddRange(
+                new Lanes {CarrierId = 1, OriginCity = "Sacramento", OriginState = "CA", OriginZip = 95842, DestinationCity = "Houston", Radius = 100 },
+                new Lanes { CarrierId = 2, OriginCity = "Reno", DestinationCity = "New York City", Radius = 100 },
+                new Lanes { CarrierId = 3, OriginCity = "Tampa Bay", DestinationCity = "Juno", Radius = 100 },
+                new Lanes { CarrierId = 4, OriginCity = "Columbus", DestinationCity = "Sacramento", Radius = 100 },
+                new Lanes { CarrierId = 5, OriginCity = "Fresno", DestinationCity = "Modesto", Radius = 100 },
+                new Lanes { CarrierId = 6, OriginCity = "Pensacola", DestinationCity = "Wilmington", Radius = 100 },
+                new Lanes { CarrierId = 7, OriginCity = "Chico", DestinationCity = "Carson City", Radius = 100 },
+                new Lanes { CarrierId = 8, OriginCity = "New York City", DestinationCity = "Dallas", Radius = 100 },
+                new Lanes { CarrierId = 9, OriginCity = "Sacramento", DestinationCity = "Houston", Radius = 100 },
+                new Lanes { CarrierId = 10, OriginCity = "Sacramento", DestinationCity = "Houston", Radius = 100 },
+                new Lanes { CarrierId = 1, OriginCity = "Sacramento", DestinationCity = "Houston", Radius = 100 });
             context.Carriers.AddRange(
-                 new Carrier
+             new Carrier
                  {
-
                         DotNumber = 1234,
                         IsTaxtId = true,
                         CompanyName = "The Matrix Shipping",
@@ -49,6 +59,7 @@ namespace FreightAppASP.Models
                         DispatchContactEmail = "FollowtheWhiteRabbit@hotmale.com",
                         AccountingContactName = "Thatone Dude",
                         AccountingContactPhone = "9165557893",
+                        Rating = 3.5,
                         AccountingContactEmail = "Forgotmyname@fluff.com"
                  },
                
@@ -77,6 +88,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "FakeAmnesia@hotmail.com",
                      AccountingContactName = "Roman Pierce",
                      AccountingContactPhone = "3427895656",
+                     Rating = 4,
                      AccountingContactEmail = "MyMovieSucked@fluff.com"
                  },
                
@@ -105,6 +117,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "IFightDirtyxx@hotmale.com",
                      AccountingContactName = "Ralphs Mom",
                      AccountingContactPhone = "955117893",
+                     Rating = 4.5,
                      AccountingContactEmail = "ThisIsTedious@failzone.com"
                  },
                
@@ -133,6 +146,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "Thecardood@email.com",
                      AccountingContactName = "Frank Tank",
                      AccountingContactPhone = "5651157893",
+                     Rating = 3.5,
                      AccountingContactEmail = "Fname@fluff.com"
                  },
                 
@@ -161,6 +175,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "DShiznit@gmail.com",
                      AccountingContactName = "Thomas Jefferson",
                      AccountingContactPhone = "9875557893",
+                     Rating = 5,
                      AccountingContactEmail = "DontCareanymore@outlook.com"
                  },
                 
@@ -189,6 +204,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "FollowtheWhiteRabbit@hotmale.com",
                      AccountingContactName = "Thatone Dude",
                      AccountingContactPhone = "9165557893",
+                     Rating = 4.6,
                      AccountingContactEmail = "Forgotmyname@fluff.com"
                  },
                  
@@ -217,6 +233,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "FollowtheWhiteRabbit@hotmale.com",
                      AccountingContactName = "Thatone Dude",
                      AccountingContactPhone = "9165557893",
+                     Rating = 3.9,
                      AccountingContactEmail = "Forgotmyname@fluff.com"
                  },
                
@@ -245,6 +262,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "FollowtheWhiteRabbit@hotmale.com",
                      AccountingContactName = "Thatone Dude",
                      AccountingContactPhone = "9165557893",
+                     Rating = 4.7,
                      AccountingContactEmail = "Forgotmyname@fluff.com"
                  },
                 
@@ -273,6 +291,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "FollowtheWhiteRabbit@hotmale.com",
                      AccountingContactName = "Thatone Dude",
                      AccountingContactPhone = "9165557893",
+                     Rating = 4.9,
                      AccountingContactEmail = "Forgotmyname@fluff.com"
                  },
 
@@ -301,6 +320,7 @@ namespace FreightAppASP.Models
                      DispatchContactEmail = "FollowtheWhiteRabbit@hotmale.com",
                      AccountingContactName = "Thatone Dude",
                      AccountingContactPhone = "9165557893",
+                     Rating = 5,
                      AccountingContactEmail = "Forgotmyname@fluff.com"
                  }
 

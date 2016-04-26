@@ -1,4 +1,4 @@
-@model IEnumerable<FreightAppASP.ViewModels.CarrierViewModel>
+@using FreightAppASP.ViewModels
 
 @{
     ViewData["Title"] = "Index";
@@ -8,7 +8,7 @@
     <a asp-action="Seed">Seed</a>
 </div>
 
-@(Html.Kendo().Grid(Model)
+@(Html.Kendo().Grid<FreightAppASP.ViewModels.CarrierViewModel>()
     .Name("Grid")
     .Columns(columns =>
     {
@@ -24,10 +24,11 @@
         //.Bound(p => p.PhysicalAddress).Title("Physical Address");
         columns.Bound(p => p.PrimaryContactName).Title("Contact Name");
         columns.Bound(p => p.PhysicalCity).Title("City");
-        columns.Bound(p => p.PhysicalState).Title("State");
+        columns.Bound(p => p.PhysicalState).Title("State").Width(140);
         columns.Bound(p => p.PhysicalZip).Title("Zip").Width(100);
         //columns.Bound(p => p.Phone).Title("Phone");
         //columns.Bound(p => p.Fax).Title("Fax");
+        columns.Bound(p => p.Rating).Title("Rating").Width(140);
 
         //columns.Bound(p => p.PrimaryContactPhone).Title("Phone");
         //columns.Bound(p => p.PrimaryContactEmail).Title("Email");
@@ -47,37 +48,72 @@
     .Sortable()
     .Scrollable(scr => scr.Height(430))
     .Filterable()
+    .ClientDetailTemplateId("template")
     .DataSource(dataSource => dataSource
         .Ajax()
-        .PageSize(20)
+        .PageSize(10)
+        .Read(read => read.Action("Carriers_Read", "Carriers"))
         .ServerOperation(false)
      )
+     .Events(events => events.DataBound("dataBound"))
 )
-@(Html.Kendo().Window().Name("Details")
+<script id="template" type="text/kendo-tmpl">
+    @(Html.Kendo().Grid<FreightAppASP.ViewModels.LaneViewModel>()
+            .Name("Grid_Lanes_#=CarrierId#") // template expression, to be evaluated in the master context
+            .Columns(columns =>
+            {
+                columns.Bound(o => o.LaneId);
+                columns.Bound(o => o.OriginCity);
+                columns.Bound(o => o.OriginState).Width(100);
+                columns.Bound(o => o.DestinationCity);
+                columns.Bound(o => o.DestinationState);
+                columns.Bound(o => o.Radius);
+            })
+            //.HtmlAttributes(new { style = "height: 420px;" })
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .PageSize(6)
+                .Read(read => read.Action("Binding_Lanes", "Lanes", new { CarrierId = "#=CarrierId#" }))
+                .ServerOperation(false)
+
+            )
+            .Pageable()
+            .Sortable()
+            .ToClientTemplate()
+
+    )
+    </script>
+    <script>
+        function dataBound() {
+            this.expandRow(this.tbody.find("tr.k-master-row").first());
+        }
+    </script>
+
+    @(Html.Kendo().Window().Name("Details")
     .Title("Carrier Information")
     .Visible(false)
     .Modal(true)
     .Draggable(true)
     .Width(600)
-)
+    )
 
-<script type="text/x-kendo-template" id="template">
-    <div id="details-container">
-        <h3>#= CompanyName # </h3>
-        
+    <script type="text/x-kendo-template" id="template1">
+        <div id="details-container">
+            <h3>#= CompanyName # </h3>
+
             <dt>Carrier ID: #= CarrierId #</dt>
-        
+
             <table width="95%">
                 <tr>
                     <td><b>Phone Number</b></td>
                     <td><b>Fax Number</b></td>
                 </tr>
-               
+
                 <tr>
                     <td>#= Phone#</td>
                     <td>#= Fax#</td>
                 </tr>
-                 <tr><td> <br /></td></tr>
+                <tr><td> <br /></td></tr>
                 <tr>
                     <td><b>Physical Address</b></td>
                     <td><b>Mailing Address</b></td>
@@ -118,27 +154,28 @@
                     <td>Phone: #=AccountingContactPhone#</td>
                 </tr>
                 <tr><td>Email: #=AccountingContactEmail#</td></tr>
-                </table>
-          <dl>  
-                 
-            <h4>Other Info</h4>
-            <dt>Dot Number: #= DotNumber #</dt>
-            <dt>DBA: #= DbaName #</dt>
-            <dt>Tax: #= IsTaxtId #</dt>
-        </dl>
-    </div>
-</script>
+                <tr><td><b>Other Info</b></td></tr>
+            </table>
+            <dl>
 
-<script type="text/javascript">
-    var detailsTemplate = kendo.template($("#template").html());
+                <h4>Other Info</h4>
+                <dt>Dot Number: #= DotNumber #</dt>
+                <dt>DBA: #= DbaName #</dt>
+                <dt>Tax: #= IsTaxtId #</dt>
+            </dl>
+        </div>
+    </script>
 
-    function showDetails(e) {
-        e.preventDefault();
+    <script type="text/javascript">
+        var detailsTemplate = kendo.template($("#template1").html());
 
-        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-        var wnd = $("#Details").data("kendoWindow");
+        function showDetails(e) {
+            e.preventDefault();
 
-        wnd.content(detailsTemplate(dataItem));
-        wnd.center().open();
-    }
-</script>
+            var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            var wnd = $("#Details").data("kendoWindow");
+
+            wnd.content(detailsTemplate(dataItem));
+            wnd.center().open();
+        }
+    </script>

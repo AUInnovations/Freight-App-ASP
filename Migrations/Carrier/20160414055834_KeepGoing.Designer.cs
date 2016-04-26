@@ -8,9 +8,10 @@ using FreightAppASP.DataContexts;
 namespace FreightAppASP.Migrations.Carrier
 {
     [DbContext(typeof(CarrierContext))]
-    partial class CarrierContextModelSnapshot : ModelSnapshot
+    [Migration("20160414055834_KeepGoing")]
+    partial class KeepGoing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348");

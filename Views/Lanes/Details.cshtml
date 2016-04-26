@@ -1,0 +1,42 @@
+@model FreightAppASP.Models.Lanes
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lanes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarrierId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CarrierId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DestinationCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DestinationCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OriginCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Radius)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Radius)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.LaneId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

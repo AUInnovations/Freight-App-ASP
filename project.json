@@ -38,7 +38,12 @@
   },
 
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "dependencies": {
+        "System.Data.SQLite.Core": "1.0.94",
+        "System.Web.Mvc": "1.0.0-*"
+      }
+    },
     "dnxcore50": { }
   },
 

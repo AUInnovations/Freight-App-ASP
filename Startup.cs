@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using FreightAppASP.Models;
 using FreightAppASP.Services;
+using System.IO;
 
 namespace FreightAppASP
 {
@@ -31,9 +32,11 @@ namespace FreightAppASP
                 builder.AddUserSecrets();
             }
 
+            WebRootPath = env.WebRootPath;
+            var dataDirectory = Path.Combine(Startup.WebRootPath, "App_Data");
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-            Configuration["Data:DefaultConnection:ConnectionString"] = $@"Data Source={appEnv.ApplicationBasePath}/FreightAppASP.db";
+            Configuration["Data:DefaultConnection:ConnectionString"] = @"Data Source = " + dataDirectory + System.IO.Path.DirectorySeparatorChar + @"FreightAppASP.db; ";
 
         }
 
@@ -47,7 +50,7 @@ namespace FreightAppASP
                 .AddSqlite()
                 .AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration["Data:DefaultConnection:ConnectionString"]))
                 .AddDbContext<CarrierContext>(options => options.UseSqlite(Configuration["Data:DefaultConnection:ConnectionString"]));
-
+           
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -96,7 +99,7 @@ namespace FreightAppASP
             app.UseStaticFiles();
 
             app.UseIdentity();
-
+                                  
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
 
             app.UseMvc(routes =>
@@ -109,5 +112,8 @@ namespace FreightAppASP
 
         // Entry point for the application.
         public static void Main(string[] args) => Microsoft.AspNet.Hosting.WebApplication.Run<Startup>(args);
+
+        public static string WebRootPath { get; private set; }
+
     }
 }

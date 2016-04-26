@@ -17,7 +17,7 @@ namespace FreightAppASP.Services
             this.entities = entities;
         }
 
-        public IEnumerable<CarrierViewModel> Read()
+        public IEnumerable<CarrierViewModel> GetCarriers()
         {
             return entities.Carriers.Select(carrier => new CarrierViewModel
             {

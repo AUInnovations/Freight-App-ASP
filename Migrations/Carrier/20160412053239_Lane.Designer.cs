@@ -8,9 +8,10 @@ using FreightAppASP.DataContexts;
 namespace FreightAppASP.Migrations.Carrier
 {
     [DbContext(typeof(CarrierContext))]
-    partial class CarrierContextModelSnapshot : ModelSnapshot
+    [Migration("20160412053239_Lane")]
+    partial class Lane
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348");
@@ -80,15 +81,7 @@ namespace FreightAppASP.Migrations.Carrier
 
                     b.Property<string>("DestinationCity");
 
-                    b.Property<string>("DestinationState");
-
-                    b.Property<int>("DestinationZip");
-
                     b.Property<string>("OriginCity");
-
-                    b.Property<string>("OriginState");
-
-                    b.Property<int>("OriginZip");
 
                     b.Property<int>("Radius");
 

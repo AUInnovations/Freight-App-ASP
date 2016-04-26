@@ -33,5 +33,6 @@ namespace FreightAppASP.Models
         public string AccountingContactName { get; set; }
         public string AccountingContactPhone { get; set; }
         public string AccountingContactEmail { get; set; }
+        public double Rating { get; set; }
     }
 }

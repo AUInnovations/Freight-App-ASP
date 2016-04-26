@@ -5,6 +5,10 @@ using Microsoft.Data.Entity;
 using FreightAppASP.DataContexts;
 using FreightAppASP.Models;
 using FreightAppASP.Services;
+using Kendo.Mvc.UI;
+using FreightAppASP.ViewModels;
+using System.Collections.Generic;
+using Kendo.Mvc.Extensions;
 
 namespace FreightAppASP.Controllers
 {
@@ -24,12 +28,51 @@ namespace FreightAppASP.Controllers
             SeedData.Initialize(_context);            
         }
 
+        public ActionResult Carriers_Read([DataSourceRequest] DataSourceRequest request)
+        {
+            return Json(GetCarriers().ToDataSourceResult(request));
+        }
+    
+        private static IEnumerable<CarrierViewModel> GetCarriers()
+        {
+            var carr = new CarrierContext();
+
+            return carr.Carriers.ToList().Select(carrier => new CarrierViewModel
+            {
+                CompanyName = carrier.CompanyName,
+                CarrierId = carrier.CarrierId,
+                PhysicalCity = carrier.PhysicalCity,
+                PhysicalState = carrier.PhysicalState,
+                PhysicalZip = carrier.PhysicalZip,
+                PrimaryContactName = carrier.PrimaryContactName,
+                PhysicalAddress = carrier.PhysicalAddress,
+                DotNumber = carrier.DotNumber,
+                IsTaxtId = carrier.IsTaxtId,
+                DbaName = carrier.DbaName,
+                MailingAddress = carrier.MailingAddress,
+                MailingCity = carrier.MailingCity,
+                MailingState = carrier.MailingState,
+                MailingZip = carrier.MailingZip,
+                Phone = carrier.Phone,
+                Fax = carrier.Fax,
+                PrimaryContactPhone = carrier.PrimaryContactPhone,
+                PrimaryContactEmail = carrier.PrimaryContactEmail,
+                DispatchContactName = carrier.DispatchContactName,
+                DispatchContactPhone = carrier.DispatchContactPhone,
+                DispatchContactEmail = carrier.DispatchContactEmail,
+                AccountingContactName = carrier.AccountingContactName,
+                AccountingContactPhone = carrier.AccountingContactPhone,
+                AccountingContactEmail = carrier.AccountingContactEmail,
+                Rating = carrier.Rating
+            });
+            }
+
         // GET: Carriers
         public IActionResult Index()
         {
-            var model = carrierService.Read();
-
-            return View(model);
+          //  var model = carrierService.GetCarriers();
+           
+            return View();
         }
 
         // GET: Carriers/Details/5
