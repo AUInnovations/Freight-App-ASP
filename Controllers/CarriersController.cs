@@ -13,7 +13,7 @@ namespace FreightAppASP.Controllers
 
         public CarriersController(CarrierContext context)
         {
-            _context = context;    
+            _context = context;
         }
 
         // GET: Carriers
